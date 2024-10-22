@@ -1,0 +1,9 @@
+*mdm 6*
+//curl -o NUL -s https://krishnas-77.github.io/Exp05/home.html
+
+mdm 7
+javac Main.java
+java Main
+
+mdm 8
+xcopy index.html "D:\My Website" /Y /I
