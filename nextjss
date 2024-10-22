@@ -1,0 +1,89 @@
+mdm 4
+
+git init
+
+Output:
+Initialized empty Git repository in /path/to/my-versioned-project/.git/
+
+Now check the user information using
+git config –global
+
+As there are no users defined, let us define it using following two commands
+
+git config --global user.name "bhushan"
+git config --global user.email "bhushan,jadhav1@gmail.com"
+
+Now, check the list of users
+
+git config --global --list
+Output:
+user.name=bhushan
+user.email=bhushan.jadhav1@gmail.com
+
+2. Create and Commit Initial Files
+Create a new file and make an initial commit.
+# Create a new file
+echo "This is the first version of my project." > project.txt
+
+# Add the file to the staging area
+git add project.txt
+
+# Commit the file to the repository
+git commit -m "Initial commit with project.txt"
+
+Output:
+[main (root-commit) 1234567] Initial commit with project.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 project.txt
+
+3. Make Changes and Commit Again
+Edit the file and make another commit to track the changes.
+# Append a new line to the file
+echo "Adding more content to the project." >> project.txt
+
+# Add the file to the staging area
+git add project.txt
+
+# Commit the changes
+git commit -m "Added more content to project.txt"
+
+Output:
+[main 89abcdef] Added more content to project.txt
+ 1 file changed, 1 insertion(+)
+
+
+4. View Commit History
+Check the commit history to see the changes over time.
+# View the commit history
+git log
+
+Output:
+commit 89abcdef1234567890abcdef1234567890abcdef
+Author: Your Name <youremail@example.com>
+Date:   Mon Jul 22 10:00:00 2024 -0700
+
+    Added more content to project.txt
+
+commit 1234567890abcdef1234567890abcdef1234567
+Author: Your Name <youremail@example.com>
+Date:   Mon Jul 22 09:00:00 2024 -0700
+
+    Initial commit with project.txt
+
+5. Revert to a Previous Version
+Suppose you want to revert to the initial version of project.txt. You can do this using the commit hash from the history.
+# Reset the file to the state of the initial commit
+git checkout 1234567890abcdef1234567890abcdef1234567 -- project.txt
+
+This command will replace project.txt with its version from the specified commit. The file is now in the state it was when the initial commit was made.
+6. Commit the Reverted Changes
+If you want to make this reversion a new commit, you need to add and commit the changes.
+# Stage the reverted file
+git add project.txt
+
+# Commit the reverted file
+git commit -m "Reverted project.txt to initial version"
+
+Output:
+[main fedcba98] Reverted project.txt to initial version
+ 1 file changed, 1 insertion(+), 1 deletion(-)
